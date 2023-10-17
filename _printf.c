@@ -59,6 +59,15 @@ int _printf(const char *format, ...)
 				write(1, stg, strLen);
 				prChar += strLen;
 			}
+			else if(*format == 'd' || *format == 'i')
+			{
+				int num = va_arg(va, int);
+				char numStr[12];
+
+				int numLen = sprintf(numStr, "%d", num);
+				write(1, numStr, numLen);
+				prChar += numLen;
+			}
 		}
 
 		format++;
